@@ -1,5 +1,4 @@
-LDFLAGS = -shared
-TARGET = libmy.so
+TARGET = libmy.a
 CSOURCES = $(shell echo *.c)
 SSOURCES = $(shell echo *.S)
 
@@ -11,6 +10,6 @@ BINDIR = $(PREFIX)/lib
 all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
-	arm-linux-gnueabi-ld $(FLAGS) $(LDFLAGS) -o $(TARGET) $(OBJECTS)
+	arm-linux-gnueabi-ar rcs $(TARGET) $(OBJECTS)
 
 include ../base.mk
